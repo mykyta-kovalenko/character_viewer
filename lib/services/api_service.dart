@@ -12,8 +12,8 @@ class ApiService extends BaseService {
 
   Future<List<Character>> getSimpsonsCharacters() {
     return makeErrorParsedCall(() async {
-      final response = await apiClient.getSimpsonsCharacters();
-      return response.relatedTopics;
+      final responseTest = await apiClient.getSimpsonsCharacters();
+      return responseTest.relatedTopics;
     });
   }
 }

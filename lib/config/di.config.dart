@@ -30,7 +30,7 @@ _i1.GetIt $configureDependencies(
   );
   final apiModule = _$ApiModule();
   gh.lazySingleton<_i3.Dio>(() => apiModule.dio());
-  gh.lazySingleton<_i4.ApiClient>(() => apiModule.factClient(gh<_i3.Dio>()));
+  gh.lazySingleton<_i4.ApiClient>(() => apiModule.apiClient(gh<_i3.Dio>()));
   gh.factory<_i5.ApiService>(() => _i5.ApiService(gh<_i4.ApiClient>()));
   gh.factory<_i6.HomePageCubit>(() => _i6.HomePageCubit(gh<_i5.ApiService>()));
   return getIt;

@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
         builder: (context, state) {
           return ListView.builder(
             itemCount: state.characters.length,
-            itemBuilder: (_, index) => Text(state.characters[index].name),
+            itemBuilder: (_, index) => Text(state.characters[index].firstUrl),
           );
         },
       ),

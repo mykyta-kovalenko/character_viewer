@@ -1,23 +1,23 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'image.dart';
+import 'icon.dart';
 
 part 'character.g.dart';
 
 @JsonSerializable()
 class Character extends Equatable {
-  @JsonKey(name: 'FirstUrl')
-  final String name;
+  @JsonKey(name: 'FirstURL')
+  final String firstUrl;
   @JsonKey(name: 'Icon')
-  final Image iconUrl;
+  final Icon icon;
   @JsonKey(name: 'Text')
-  final String description;
+  final String text;
 
   const Character({
-    required this.name,
-    required this.iconUrl,
-    required this.description,
+    required this.firstUrl,
+    required this.icon,
+    required this.text,
   });
 
   factory Character.fromJson(Map<String, dynamic> json) =>
@@ -27,6 +27,6 @@ class Character extends Equatable {
 
   @override
   List<Object?> get props {
-    return [name, iconUrl, description];
+    return [firstUrl, icon, text];
   }
 }

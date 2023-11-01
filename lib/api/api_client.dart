@@ -1,15 +1,28 @@
-import 'package:dio/dio.dart';
-import 'package:retrofit/retrofit.dart';
+import 'dart:convert';
+import 'dart:developer';
 
-import 'api_constants.dart';
+import 'package:dio/dio.dart';
+
 import 'characters_response.dart';
 
-part 'api_client.g.dart';
+class ApiClient {
+  final Dio dio;
 
-@RestApi()
-abstract class ApiClient {
-  factory ApiClient(Dio dio, {String baseUrl}) = _ApiClient;
+  ApiClient(this.dio);
 
-  @GET(ApiConstants.simpsonsQuery)
-  Future<CharactersResponse> getSimpsonsCharacters();
+  Future<CharactersResponse> getSimpsonsCharacters() async {
+    final response = await dio
+        .get('http://api.duckduckgo.com/?q=simpsons+characters&format=json');
+
+    Map<String, dynamic> data = jsonDecode(response.data);
+
+    // Access specific data in the response
+    // final List<dynamic> abstract = data['RelatedTopics'];
+
+    log(CharactersResponse.fromJson(data).toString());
+
+    // log('RelatedTopics: $abstract');
+    //Change
+    return CharactersResponse.fromJson(data);
+  }
 }

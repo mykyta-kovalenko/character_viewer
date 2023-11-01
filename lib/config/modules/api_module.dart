@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../api/api_client.dart';
-import '../../api/api_constants.dart';
 
 @module
 abstract class ApiModule {
@@ -19,8 +18,5 @@ abstract class ApiModule {
   }
 
   @lazySingleton
-  ApiClient factClient(Dio dio) => ApiClient(
-        dio,
-        baseUrl: ApiConstants.baseUrl,
-      );
+  ApiClient apiClient(Dio dio) => ApiClient(dio);
 }

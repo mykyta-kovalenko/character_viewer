@@ -8,12 +8,12 @@ part of 'characters_response.dart';
 
 CharactersResponse _$CharactersResponseFromJson(Map<String, dynamic> json) =>
     CharactersResponse(
-      relatedTopics: (json['Related Topics'] as List<dynamic>)
+      relatedTopics: (json['RelatedTopics'] as List<dynamic>)
           .map((e) => Character.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$CharactersResponseToJson(CharactersResponse instance) =>
     <String, dynamic>{
-      'Related Topics': instance.relatedTopics,
+      'RelatedTopics': instance.relatedTopics,
     };

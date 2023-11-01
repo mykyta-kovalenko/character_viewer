@@ -7,7 +7,7 @@ part 'characters_response.g.dart';
 
 @JsonSerializable()
 class CharactersResponse extends Equatable {
-  @JsonKey(name: 'Related Topics')
+  @JsonKey(name: 'RelatedTopics')
   final List<Character> relatedTopics;
 
   const CharactersResponse({required this.relatedTopics});

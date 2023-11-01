@@ -1,19 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'image.dart';
+part of 'icon.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Image _$ImageFromJson(Map<String, dynamic> json) => Image(
+Icon _$IconFromJson(Map<String, dynamic> json) => Icon(
       height: json['Height'] as String,
-      iconUrl: json['URL'] as String,
+      url: json['URL'] as String,
       width: json['Width'] as String,
     );
 
-Map<String, dynamic> _$ImageToJson(Image instance) => <String, dynamic>{
+Map<String, dynamic> _$IconToJson(Icon instance) => <String, dynamic>{
       'Height': instance.height,
-      'URL': instance.iconUrl,
+      'URL': instance.url,
       'Width': instance.width,
     };
