@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
+import 'api_constants.dart';
 import 'characters_response.dart';
 
 class ApiClient {
@@ -11,18 +12,14 @@ class ApiClient {
   ApiClient(this.dio);
 
   Future<CharactersResponse> getSimpsonsCharacters() async {
-    final response = await dio
-        .get('http://api.duckduckgo.com/?q=simpsons+characters&format=json');
+    final response = await dio.get(
+      ApiConstants.baseUrl + ApiConstants.simpsonsQuery,
+    );
 
     Map<String, dynamic> data = jsonDecode(response.data);
 
-    // Access specific data in the response
-    // final List<dynamic> abstract = data['RelatedTopics'];
-
     log(CharactersResponse.fromJson(data).toString());
 
-    // log('RelatedTopics: $abstract');
-    //Change
     return CharactersResponse.fromJson(data);
   }
 }

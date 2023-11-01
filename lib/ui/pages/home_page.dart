@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/core/home_page/home_page_cubit.dart';
 import '../../config/locator.dart';
+import '../../utils/string_ext.dart';
 
 class HomePage extends StatelessWidget {
   static Widget create() {
@@ -22,7 +23,9 @@ class HomePage extends StatelessWidget {
         builder: (context, state) {
           return ListView.builder(
             itemCount: state.characters.length,
-            itemBuilder: (_, index) => Text(state.characters[index].firstUrl),
+            itemBuilder: (_, index) => Text(
+              state.characters[index].firstUrl.extractNameFromUrl(),
+            ),
           );
         },
       ),
