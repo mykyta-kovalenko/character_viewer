@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
@@ -17,8 +16,6 @@ class ApiClient {
     );
 
     Map<String, dynamic> data = jsonDecode(response.data);
-
-    log(CharactersResponse.fromJson(data).toString());
 
     return CharactersResponse.fromJson(data);
   }

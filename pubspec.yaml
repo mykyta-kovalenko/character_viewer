@@ -1,5 +1,5 @@
 name: character_viewer
-description: A new Flutter project.
+description: Character Viewer.
 publish_to: 'none'
 version: 0.1.0
 
@@ -16,6 +16,7 @@ dependencies:
   injectable: ^2.3.2
   flutter_bloc: ^8.1.3
   json_annotation: ^4.8.1
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:
