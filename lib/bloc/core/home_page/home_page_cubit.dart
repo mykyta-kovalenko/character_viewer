@@ -12,7 +12,9 @@ part 'home_page_state.dart';
 class HomePageCubit extends BaseCubit<HomePageState> {
   final ApiService apiService;
 
-  HomePageCubit(this.apiService) : super(const HomePageState());
+  HomePageCubit(this.apiService) : super(const HomePageState()) {
+    _getSimpsonsCharacters();
+  }
 
   @override
   void handleError(HandledError error) {
@@ -22,7 +24,7 @@ class HomePageCubit extends BaseCubit<HomePageState> {
     ));
   }
 
-  Future<void> getSimpsonsCharacters() async {
+  Future<void> _getSimpsonsCharacters() async {
     await makeErrorHandledCall(() async {
       emit(state.copyWith(status: HomePageStatus.loading));
 

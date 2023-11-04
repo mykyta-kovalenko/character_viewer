@@ -1,21 +1,48 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/core/home_page/home_page_cubit.dart';
-import '../../config/locator.dart';
+import '../../config/router/app_observer.dart';
+import '../../config/router/cv_app_router.dart';
 import '../../resources/app_strings.dart';
+import '../../utils/bloc_auto_route_mixin.dart';
 import '../view/character_tile.dart';
 
-class HomePage extends StatelessWidget {
-  static Widget create() {
-    return BlocProvider(
-      create: (context) =>
-          locator.get<HomePageCubit>()..getSimpsonsCharacters(),
-      child: const HomePage._(),
-    );
+@RoutePage()
+class HomePage extends StatefulWidget with BlocAutoRouteMixin<HomePageCubit> {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+
+  // @override
+  // Widget wrappedRoute(BuildContext context) {
+  //   return BlocProvider<HomePageCubit>(
+  //     create: (context) =>
+  //         locator.get<HomePageCubit>()..getSimpsonsCharacters(),
+  //     child: const HomePage(),
+  //   );
+  // }
+}
+
+class _HomePageState extends State<HomePage> with AutoRouteAwareStateMixin {
+  AppObserver? _observer;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _observer = router.getObserver<AppObserver>(context);
+    if (_observer != null) {
+      _observer?.subscribe(this, context.routeData);
+    }
   }
 
-  const HomePage._();
+  @override
+  void dispose() {
+    _observer?.unsubscribe(this);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
