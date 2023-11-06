@@ -8,6 +8,7 @@ import '../../config/router/cv_app_router.dart';
 import '../../resources/app_strings.dart';
 import '../../utils/bloc_auto_route_mixin.dart';
 import '../view/character_tile.dart';
+import '../view/shimmer_loading_view.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget with BlocAutoRouteMixin<HomePageCubit> {
@@ -40,6 +41,10 @@ class _HomePageState extends State<HomePage> with AutoRouteAwareStateMixin {
     return Scaffold(
       body: BlocBuilder<HomePageCubit, HomePageState>(
         builder: (context, state) {
+          if (state.status == HomePageStatus.loading) {
+            return const ShimmerLoadingView();
+          }
+
           return SafeArea(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
