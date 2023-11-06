@@ -19,7 +19,6 @@ class DetailsPage extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(

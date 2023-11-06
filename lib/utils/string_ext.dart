@@ -6,7 +6,11 @@ extension UrlProcessing on String {
       return this;
     }
 
-    final name = parts[1].replaceAll('_', ' ');
+    final name = parts[1]
+        .replaceAll('_', ' ')
+        .replaceAll('%2C', ',')
+        .replaceAll('%26', '&');
+
     return name;
   }
 }
