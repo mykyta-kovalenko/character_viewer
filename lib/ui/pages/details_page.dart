@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:motion/motion.dart';
 
 import '../../models/character.dart';
 import '../../utils/string_ext.dart';
@@ -28,10 +29,14 @@ class DetailsPage extends StatelessWidget {
                 const SizedBox(height: 24),
                 Hero(
                   tag: character.firstUrl,
-                  child: ImageView(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height / 3,
-                    url: character.icon.url,
+                  child: Motion.elevated(
+                    elevation: 24,
+                    shadow: false,
+                    child: ImageView(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height / 3,
+                      url: character.icon.url,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 24),
