@@ -32,8 +32,8 @@ class CharacterTile extends StatelessWidget {
             children: [
               _buildImage(),
               const SizedBox(width: 8),
-              _buildCharacterName(),
-              const Spacer(),
+              Expanded(child: _buildCharacterName()),
+              const SizedBox(width: 8),
               Icon(
                 Icons.arrow_forward_ios_rounded,
                 size: 16,
@@ -63,6 +63,7 @@ class CharacterTile extends StatelessWidget {
       style: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w600,
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }
