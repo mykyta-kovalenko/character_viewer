@@ -15,13 +15,61 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    DetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<DetailsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DetailsPage(
+          key: args.key,
+          character: args.character,
+        ),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: WrappedRoute(child: const HomePage()),
       );
-    }
+    },
   };
+}
+
+/// generated route for
+/// [DetailsPage]
+class DetailsRoute extends PageRouteInfo<DetailsRouteArgs> {
+  DetailsRoute({
+    Key? key,
+    required Character character,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DetailsRoute.name,
+          args: DetailsRouteArgs(
+            key: key,
+            character: character,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DetailsRoute';
+
+  static const PageInfo<DetailsRouteArgs> page =
+      PageInfo<DetailsRouteArgs>(name);
+}
+
+class DetailsRouteArgs {
+  const DetailsRouteArgs({
+    this.key,
+    required this.character,
+  });
+
+  final Key? key;
+
+  final Character character;
+
+  @override
+  String toString() {
+    return 'DetailsRouteArgs{key: $key, character: $character}';
+  }
 }
 
 /// generated route for

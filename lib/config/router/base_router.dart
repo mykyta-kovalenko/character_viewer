@@ -9,4 +9,6 @@ abstract class BaseRouter {
   T? getObserver<T extends AutoRouteObserver>(BuildContext context) {
     return RouterScope.of(context).firstObserverOfType<T>();
   }
+
+  Future<void> push(PageRouteInfo<dynamic> route) => stackRouter.push(route);
 }

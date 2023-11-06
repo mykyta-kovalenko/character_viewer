@@ -15,15 +15,6 @@ class HomePage extends StatefulWidget with BlocAutoRouteMixin<HomePageCubit> {
 
   @override
   State<HomePage> createState() => _HomePageState();
-
-  // @override
-  // Widget wrappedRoute(BuildContext context) {
-  //   return BlocProvider<HomePageCubit>(
-  //     create: (context) =>
-  //         locator.get<HomePageCubit>()..getSimpsonsCharacters(),
-  //     child: const HomePage(),
-  //   );
-  // }
 }
 
 class _HomePageState extends State<HomePage> with AutoRouteAwareStateMixin {

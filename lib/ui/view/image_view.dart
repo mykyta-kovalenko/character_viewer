@@ -6,13 +6,13 @@ import '../../resources/app_strings.dart';
 class ImageView extends StatelessWidget {
   final String url;
   final double width;
-  final double height;
+  final double? height;
 
   const ImageView({
     super.key,
     required this.url,
     required this.width,
-    required this.height,
+    this.height,
   });
 
   @override
