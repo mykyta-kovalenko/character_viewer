@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> with AutoRouteAwareStateMixin {
     return const Text(
       AppStrings.theSimpsonsCharacters,
       style: TextStyle(
-        fontSize: 24,
+        fontSize: 36,
         fontWeight: FontWeight.bold,
       ),
     );

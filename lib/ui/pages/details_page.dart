@@ -26,10 +26,13 @@ class DetailsPage extends StatelessWidget {
                   child: const Icon(Icons.arrow_back_ios, size: 36),
                 ),
                 const SizedBox(height: 24),
-                ImageView(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height / 3,
-                  url: character.icon.url,
+                Hero(
+                  tag: character.firstUrl,
+                  child: ImageView(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height / 3,
+                    url: character.icon.url,
+                  ),
                 ),
                 const SizedBox(height: 24),
                 Text(

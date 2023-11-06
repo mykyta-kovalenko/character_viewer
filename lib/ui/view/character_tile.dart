@@ -47,10 +47,13 @@ class CharacterTile extends StatelessWidget {
   }
 
   Widget _buildImage() {
-    return ImageView(
-      width: 36,
-      height: 36,
-      url: character.icon.url,
+    return Hero(
+      tag: character.firstUrl,
+      child: ImageView(
+        width: 36,
+        height: 36,
+        url: character.icon.url,
+      ),
     );
   }
 
