@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,6 +47,10 @@ class _HomePageState extends State<HomePage> with AutoRouteAwareStateMixin {
             return const ShimmerLoadingView();
           }
 
+          if (state.status == HomePageStatus.error) {
+            log('HI');
+          }
+
           return SafeArea(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
@@ -75,7 +81,6 @@ class _HomePageState extends State<HomePage> with AutoRouteAwareStateMixin {
 
   Widget _buildBody(HomePageState state) {
     return ListView.builder(
-      shrinkWrap: true,
       itemCount: state.characters.length,
       itemBuilder: (_, index) => CharacterTile(
         character: state.characters[index],
